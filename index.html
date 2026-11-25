@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Bothy Christmas Party @ Bar Lotus</title>
+  <meta name="description" content="Pizza, beer, a Bar Lotus tasting and on to the Lexington. Tell us which December dates work for you." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <p class="eyebrow">The Bothy · December 2026</p>
+      <h1>Christmas Party at Bar Lotus</h1>
+      <p class="venue-line">480 Kingsland Road, Dalston · Date to be confirmed</p>
+      <p class="lede">We'll start with pizza and beer, then Bar Lotus are hosting a tasting for us, and we'll finish at the Lexington. The date isn't fixed yet, so please add the dates you can make.</p>
+      <a class="btn" href="#availability">Add your availability</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ── The plan ───────────────────────────────────────────── -->
+    <section class="wrap" id="plan">
+      <h2>The plan</h2>
+      <ol class="timeline">
+        <li>
+          <span class="time">Early evening</span>
+          <h3>Pizza and beer</h3>
+          <p>Venue to be confirmed. We'll update this page once the date is set.</p>
+        </li>
+        <li>
+          <span class="time">Main event</span>
+          <h3>Tasting at Bar Lotus</h3>
+          <p>A private tasting of their drinks, hosted by the Bar Lotus team.</p>
+        </li>
+        <li>
+          <span class="time">Late</span>
+          <h3>The Lexington</h3>
+          <p>We'll move on to the Lexington in Angel for the rest of the evening.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ── Availability ───────────────────────────────────────── -->
+    <section class="wrap" id="availability">
+      <h2>Availability</h2>
+      <p class="section-intro">Tap a date once for <span class="chip yes">Yes</span>, twice for <span class="chip maybe">Maybe</span>, and a third time to clear it. If you submit again with the same name, your old answer gets replaced.</p>
+
+      <div id="demo-banner" class="banner" hidden>
+        <strong>Demo mode:</strong> no backend is set up, so answers are only saved in this browser. See the README to connect a Google Sheet.
+      </div>
+
+      <div class="avail-grid">
+        <form id="avail-form" class="card" autocomplete="on">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" required maxlength="60" placeholder="First and last name" />
+
+          <div class="cal" id="picker" aria-label="Pick your available dates"></div>
+
+          <label for="note">Anything else? <span class="muted">(optional)</span></label>
+          <input id="note" name="note" type="text" maxlength="200" placeholder="Dietary requirements, arriving late, etc." />
+
+          <button class="btn full" type="submit" id="submit-btn">Submit availability</button>
+          <p id="form-status" class="status" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="card">
+          <div class="card-head">
+            <h3>Responses so far</h3>
+            <button type="button" class="link-btn" id="refresh-btn">Refresh</button>
+          </div>
+          <div id="best" class="best"></div>
+          <div class="cal" id="heatmap" aria-label="Group availability"></div>
+          <p class="legend"><span class="sw s0"></span>Nobody <span class="sw s2"></span>Some <span class="sw s4"></span>Most people</p>
+          <details class="responses">
+            <summary>Everyone who has replied (<span id="resp-count">0</span>)</summary>
+            <ul id="resp-list"></ul>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Getting there ──────────────────────────────────────── -->
+    <section class="wrap" id="where">
+      <h2>Getting there</h2>
+      <div class="where-grid">
+        <div class="card place">
+          <h3>Bar Lotus</h3>
+          <p>480 Kingsland Road<br />Dalston, London E8 4AE</p>
+          <p class="muted">Dalston Junction (Overground) is a few minutes' walk. Dalston Kingsland is close by too, and plenty of buses run along Kingsland Road.</p>
+          <a class="link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bar+Lotus+480+Kingsland+Road+London+E8+4AE">Open in Google Maps ↗</a>
+        </div>
+        <div class="card place">
+          <h3>The Lexington</h3>
+          <p>96–98 Pentonville Road<br />Islington, London N1 9JB</p>
+          <p class="muted">It's about 3 miles from Bar Lotus, so a short bus ride or roughly a 15-minute cab. Angel (Northern line) is around the corner for getting home.</p>
+          <a class="link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=The+Lexington+96-98+Pentonville+Road+London+N1+9JB">Open in Google Maps ↗</a>
+        </div>
+        <div id="map" class="map" role="region" aria-label="Map of Bar Lotus and the Lexington"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <p>The Bothy Christmas Party 2026</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
