@@ -5,7 +5,7 @@ window.PARTY_CONFIG = {
   // Paste your Google Apps Script web-app URL here (see README.md).
   // Leave empty to run in "demo mode": responses are saved only in
   // the visitor's own browser, which is handy for testing the layout.
-  SCRIPT_URL: "",
+  SCRIPT_URL: "https://script.google.com/macros/s/AKfycbwCNoM8VXBT4r47-uRVD7zTvStvqcK9ou5myM1zHk_EGSH4xAZIZQM6a7xA8E_UEyHQ/exec",
 
   // The window of dates people can pick from (inclusive, YYYY-MM-DD).
   START_DATE: "2026-12-01",
